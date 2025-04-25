@@ -1,0 +1,30 @@
+{
+  "name": "node-js-own",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "node src/server/server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.48",
+    "@langchain/groq": "^0.2.2",
+    "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.3",
+    "express-rate-limit": "^7.2.0",
+    "groq": "^3.86.1",
+    "groq-sdk": "^0.20.1",
+    "langchain": "^0.3.24",
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.1",
+    "vite": "^5.1.6"
+  }
+}

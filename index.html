@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/webstorm-icon-logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Builder & Chat Assistant</title>
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+<header class="logo">
+  <a href="https://www.jetbrains.com/webstorm/">
+    <img src="/webstorm-logo.svg" alt="WebStorm logo" width="344"
+         height="90">
+  </a>
+</header>
+<main id="app">
+  <h1 class="title">
+    Welcome to our Platform<br />
+    Build Projects & Chat with AI Assistant
+  </h1>
+
+  <div id="landing-page" class="features">
+    <div class="feature-card">
+      <h2>Project Builder</h2>
+      <p>Create and manage your projects with our powerful building tools.</p>
+      <ul>
+        <li>Intuitive drag-and-drop interface</li>
+        <li>Pre-built templates for quick starts</li>
+        <li>Real-time collaboration with team members</li>
+        <li>Version control integration</li>
+        <li>Automated testing and deployment</li>
+      </ul>
+      <button class="cta-button" id="start-building">Start Building</button>
+    </div>
+
+    <div class="feature-card">
+      <h2>Chat Assistant</h2>
+      <p>Get help from our AI-powered chat assistant for all your questions.</p>
+      <ul>
+        <li>24/7 AI support for your projects</li>
+        <li>Code suggestions and debugging help</li>
+        <li>Documentation search and summarization</li>
+        <li>Natural language processing</li>
+        <li>Personalized learning recommendations</li>
+      </ul>
+      <button class="cta-button" id="start-chat">Chat Now</button>
+    </div>
+  </div>
+
+  <section id="project-builder" class="demo-section" style="display: none;">
+    <h2>Project Builder</h2>
+    <section class="counter">
+      <div class="counter-info">
+        <p class="counter-text">Counter is</p>
+        <p class="counter-value" id="counter-value"></p>
+      </div>
+      <div class="counter-interaction">
+        <button id="increaseByOne" type="button">+1</button>
+        <button id="increaseByTwo" type="button">+2</button>
+        <button id="decreaseByOne" type="button">-1</button>
+        <button id="decreaseByTwo" type="button">-2</button>
+      </div>
+    </section>
+    <button class="cta-button" id="back-to-landing">Back to Home</button>
+  </section>
+
+  <section id="chat-section" class="demo-section" style="display: none;">
+    <h2>AI Assistant - Powered by Groq</h2>
+    <div class="ai-assistant">
+      <div class="agent-selector">
+        <label for="agent-type">Select Agent Type:</label>
+        <select id="agent-type">
+          <option value="research">Research Assistant</option>
+          <option value="creative">Creative Assistant</option>
+          <option value="code">Code Assistant</option>
+        </select>
+      </div>
+      <div class="chat-container">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input">
+          <textarea id="user-input" placeholder="Ask me anything..."></textarea>
+          <button id="send-message" type="button">Send</button>
+        </div>
+      </div>
+    </div>
+    <button class="cta-button" id="back-to-landing-chat">Back to Home</button>
+  </section>
+</main>
+<footer class="technologies">
+  <img src="/technologies.svg" alt="List of supported technologies">
+  <p>© 2023 Project Builder & Chat Assistant. All rights reserved.</p>
+</footer>
+<script type="module" src="/src/index.js"></script>
+</body>
+</html>

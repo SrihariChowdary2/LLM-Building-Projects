@@ -1,0 +1,232 @@
+/* Base styles from style.css in public directory */
+@import url('/style.css');
+
+/* Additional styles from index.html */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.feature-card {
+  background-color: rgba(25, 25, 28, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 15px;
+  width: 300px;
+  text-align: left;
+}
+
+.feature-card h2 {
+  color: #01C5F5;
+  margin-top: 0;
+}
+
+.feature-card ul {
+  padding-left: 20px;
+}
+
+.feature-card li {
+  margin-bottom: 10px;
+}
+
+.cta-button {
+  background-image: radial-gradient(
+    farthest-corner at 77% 83%,
+    rgba(1, 197, 245, 0.8) 2%,
+    rgba(1, 126, 254, 0.8) 28%,
+    rgba(25, 25, 28, 0.5) 70%
+  );
+  border: 1px solid rgba(76, 166, 255, 0.4);
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.demo-section {
+  margin-top: 60px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+footer p {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* AI Assistant Styles */
+.ai-assistant {
+  background-color: rgba(25, 25, 28, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 15px auto;
+  max-width: 800px;
+}
+
+.agent-selector {
+  margin-bottom: 20px;
+}
+
+.agent-selector label {
+  margin-right: 10px;
+  color: #01C5F5;
+}
+
+.agent-selector select {
+  background-color: rgba(25, 25, 28, 0.7);
+  color: white;
+  border: 1px solid rgba(76, 166, 255, 0.4);
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  background-color: rgba(25, 25, 28, 0.7);
+  border: 1px solid rgba(76, 166, 255, 0.4);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  min-height: 300px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input textarea {
+  flex: 1;
+  background-color: rgba(25, 25, 28, 0.7);
+  color: white;
+  border: 1px solid rgba(76, 166, 255, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  min-height: 60px;
+  resize: none;
+}
+
+.chat-input button {
+  background-image: radial-gradient(
+    farthest-corner at 77% 83%,
+    rgba(1, 197, 245, 0.8) 2%,
+    rgba(1, 126, 254, 0.8) 28%,
+    rgba(25, 25, 28, 0.5) 70%
+  );
+  border: 1px solid rgba(76, 166, 255, 0.4);
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+}
+
+.chat-input button:hover {
+  transform: scale(1.05);
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: rgba(1, 126, 254, 0.3);
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.ai-message {
+  background-color: rgba(1, 197, 245, 0.3);
+  align-self: flex-start;
+}
+
+#project-builder, #chat-section {
+  margin-top: 2rem;
+}
+
+.back-button {
+  margin-top: 2rem;
+}
+
+#back-to-landing, #back-to-landing-chat {
+  margin-top: 2rem;
+  background-color: rgba(25, 25, 28, 0.7);
+  border: 1px solid rgba(76, 166, 255, 0.4);
+}
+
+#back-to-landing:hover, #back-to-landing-chat:hover {
+  background-image: radial-gradient(
+    farthest-corner at 77% 83%,
+    rgba(1, 197, 245, 0.5) 2%,
+    rgba(1, 126, 254, 0.5) 28%,
+    rgba(25, 25, 28, 0) 70%
+  );
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 875px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-card {
+    width: 80%;
+    max-width: 350px;
+    margin-bottom: 30px;
+  }
+  .demo-section h2 {
+    font-size: 24px;
+  }
+  .ai-assistant {
+    width: 90%;
+    padding: 20px;
+  }
+  .chat-container {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card {
+    width: 90%;
+    padding: 20px;
+  }
+  .cta-button {
+    width: 100%;
+    padding: 12px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  .chat-input {
+    flex-direction: column;
+  }
+  .chat-input button {
+    width: 100%;
+  }
+}
