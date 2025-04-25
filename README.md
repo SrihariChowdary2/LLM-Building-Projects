@@ -6,9 +6,10 @@ This project is a web application that combines a project builder interface with
 
 - **Project Builder**: Create and manage your projects with intuitive tools
 - **AI Chat Assistant**: Get help from AI-powered assistants with different specializations:
-  - **Research Assistant**: Provides detailed information on various topics
-  - **Creative Assistant**: Helps generate innovative ideas and content
-  - **Code Assistant**: Assists with writing and explaining code
+  - **Research Agent (RA001)**: Provides detailed information on various topics
+  - **Creative Agent (CA001)**: Helps generate innovative ideas and content
+  - **Code Agent (CO001)**: Assists with writing and explaining code
+  - **Project Structure Agent (PS001)**: Helps design and organize software projects
 - **Demo Counter**: A simple counter demonstration
 
 ## Setup Instructions
@@ -54,10 +55,11 @@ This project is a web application that combines a project builder interface with
 
 ## Using the AI Assistant
 
-1. Select the type of assistant you want to interact with from the dropdown menu:
-   - Research Assistant: For factual information and detailed explanations
-   - Creative Assistant: For generating ideas, content, and creative suggestions
-   - Code Assistant: For help with programming and code explanations
+1. Select the agent you want to interact with from the dropdown menu:
+   - Research Agent (RA001): For factual information and detailed explanations
+   - Creative Agent (CA001): For generating ideas, content, and creative suggestions
+   - Code Agent (CO001): For help with programming and code explanations
+   - Project Structure Agent (PS001): For designing and organizing software projects
 
 2. Type your question or request in the text area
 
@@ -65,13 +67,18 @@ This project is a web application that combines a project builder interface with
 
 4. Wait for the AI to respond (you'll see a "Thinking..." indicator while it processes)
 
+For more detailed information about the agent system, see the [Agent System Documentation](docs/AGENTS.md).
+
 ## Technical Details
 
 This project uses:
 - Vite for frontend tooling
 - Groq API for LLM services
 - LangChain for the multi-agent system
+- Serial number-based routing for agent selection
+- Object-oriented design with inheritance for agent implementation
 - Vanilla JavaScript for the UI
+- GitHub Actions for CI/CD
 
 ## Project Structure
 
@@ -79,12 +86,21 @@ The project follows a modular architecture for better maintainability and scalab
 
 ```
 src/
+├── agents/               # Agent system
+│   ├── baseAgent.js      # Base agent class
+│   ├── researchAgent.js  # Research agent implementation
+│   ├── creativeAgent.js  # Creative agent implementation
+│   ├── codeAgent.js      # Code agent implementation
+│   ├── projectStructureAgent.js # Project structure agent implementation
+│   ├── agentRegistry.js  # Agent registry for routing
+│   └── index.js          # Exports all agent classes
 ├── components/           # UI components
 │   ├── chatComponent.js  # Chat UI functionality
-│   └── counterComponent.js # Counter demo functionality
+│   ├── counterComponent.js # Counter demo functionality
+│   └── projectBuilderComponent.js # Project builder UI
 ├── services/             # External service integrations
 │   ├── groqService.js    # Groq LLM service initialization
-│   └── multiAgentService.js # Multi-agent system using LangChain
+│   └── multiAgentService.js # Multi-agent system using agents
 ├── styles/               # CSS styles
 │   └── main.css          # Main stylesheet
 └── index.js              # Application entry point
@@ -93,11 +109,16 @@ public/                   # Static assets
 ├── fonts/                # Font files
 ├── style.css             # Base styles
 └── *.svg                 # SVG assets
+
+docs/                     # Documentation
+└── AGENTS.md             # Agent system documentation
 ```
 
+- **agents/**: Contains the agent system implementation
 - **components/**: Contains UI-related functionality
 - **services/**: Contains external service integrations and business logic
 - **styles/**: Contains CSS stylesheets
+- **docs/**: Contains project documentation
 - **index.js**: Main entry point that initializes services and components
 
 ## Troubleshooting
