@@ -1,0 +1,39 @@
+version: 0.2
+
+env:
+  variables:
+    NODE_VERSION: "18"
+  secrets-manager:
+    GROQ_API_KEY: "your-secrets-path:GROQ_API_KEY"
+    API_SECRET_KEY: "your-secrets-path:API_SECRET_KEY"
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: $NODE_VERSION
+    commands:
+      - npm ci
+  
+  pre_build:
+    commands:
+      - echo "Starting build phase"
+      
+  build:
+    commands:
+      - echo "Building the application..."
+      - npm run build
+      - if [ -d "tests" ]; then npm test; else echo "No tests directory found, skipping tests"; fi
+    
+  post_build:
+    commands:
+      - echo "Build completed successfully"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+  discard-paths: no
+
+cache:
+  paths:
+    - 'node_modules/**/*'
