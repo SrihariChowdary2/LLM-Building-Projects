@@ -49,24 +49,20 @@
   </div>
 
   <section id="project-builder" class="demo-section" style="display: none;">
-    <h2>Project Builder</h2>
-    <section class="counter">
-      <div class="counter-info">
-        <p class="counter-text">Counter is</p>
-        <p class="counter-value" id="counter-value"></p>
-      </div>
-      <div class="counter-interaction">
-        <button id="increaseByOne" type="button">+1</button>
-        <button id="increaseByTwo" type="button">+2</button>
-        <button id="decreaseByOne" type="button">-1</button>
-        <button id="decreaseByTwo" type="button">-2</button>
-      </div>
-    </section>
+    <h2>Project Structure Generator</h2>
+    <div id="project-prompt-container" class="prompt-container">
+      <p>Enter a description of the project you want to build:</p>
+      <textarea id="prompt-input" placeholder="Describe your project..."></textarea>
+      <button id="generate-project" class="cta-button">Generate Project Structure</button>
+    </div>
+    <div id="project-output" class="output-container">
+      <!-- Project structure will be displayed here -->
+    </div>
     <button class="cta-button" id="back-to-landing">Back to Home</button>
   </section>
 
   <section id="chat-section" class="demo-section" style="display: none;">
-    <h2>AI Assistant - Powered by Groq</h2>
+    <h2>AI Assistant</h2>
     <div class="ai-assistant">
       <div class="agent-selector">
         <label for="agent-type">Select Agent Type:</label>

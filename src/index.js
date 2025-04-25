@@ -2,6 +2,8 @@ import initGroqService from './services/groqService';
 import initMultiAgentService from './services/multiAgentService';
 import { setupCounter } from './components/counterComponent';
 import { setupChatUI } from './components/chatComponent';
+import { setupProjectBuilderUI } from './components/projectBuilderComponent';
+import { setupProjectStructureUI } from './components/projectStructureComponent';
 
 // Initialize services and set up UI
 const initServices = async () => {
@@ -11,14 +13,14 @@ const initServices = async () => {
   // Initialize the Multi Agent Service
   const multiAgentService = await initMultiAgentService();
 
-  // Set up UI event handlers
-  setupChatUI(multiAgentService);
+  // Set up UI components
+  if (multiAgentService) {
+    setupChatUI(multiAgentService);
+    setupProjectBuilderUI(multiAgentService);
+  }
 
   // Set up navigation
   setupNavigation();
-
-  // Set up counter
-  setupCounter(document.getElementById('counter-value'));
 
   console.log("All services initialized");
 };
@@ -29,31 +31,33 @@ const setupNavigation = () => {
   const projectBuilder = document.getElementById('project-builder');
   const chatSection = document.getElementById('chat-section');
 
-  // Start Building button
-  document.getElementById('start-building').addEventListener('click', () => {
+  const showSection = (section) => {
+    // Hide all sections first
     landingPage.style.display = 'none';
-    projectBuilder.style.display = 'block';
+    projectBuilder.style.display = 'none';
     chatSection.style.display = 'none';
+
+    // Show the requested section
+    section.style.display = section === landingPage ? 'flex' : 'block';
+  };
+
+  // Start Building button
+  document.getElementById('start-building')?.addEventListener('click', () => {
+    showSection(projectBuilder);
   });
 
   // Chat Now button
-  document.getElementById('start-chat').addEventListener('click', () => {
-    landingPage.style.display = 'none';
-    projectBuilder.style.display = 'none';
-    chatSection.style.display = 'block';
+  document.getElementById('start-chat')?.addEventListener('click', () => {
+    showSection(chatSection);
   });
 
   // Back to Home buttons
-  document.getElementById('back-to-landing').addEventListener('click', () => {
-    landingPage.style.display = 'flex';
-    projectBuilder.style.display = 'none';
-    chatSection.style.display = 'none';
+  document.getElementById('back-to-landing')?.addEventListener('click', () => {
+    showSection(landingPage);
   });
 
-  document.getElementById('back-to-landing-chat').addEventListener('click', () => {
-    landingPage.style.display = 'flex';
-    projectBuilder.style.display = 'none';
-    chatSection.style.display = 'none';
+  document.getElementById('back-to-landing-chat')?.addEventListener('click', () => {
+    showSection(landingPage);
   });
 };
 
