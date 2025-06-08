@@ -65,6 +65,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # 🔧 This fixes the "not in a git directory" error
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
@@ -76,4 +79,8 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-          target-folder: ${{ github.ref_name }}
+          target-folder: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+          force: true
+          attempt-limit: 3
