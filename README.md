@@ -32,17 +32,20 @@ This project is a web application that combines a project builder interface with
    npm install
    ```
 
-3. Set up your Groq API key:
+3. Set up your environment variables:
    - Sign up for a Groq account at [https://console.groq.com/](https://console.groq.com/) if you don't have one
    - Get your API key from the Groq console
-   - Create a `.env` file in the project root with the following content:
+   - Copy the example environment file:
      ```
-     GROQ_API_KEY=your_api_key_here
+     cp .env.example .env
      ```
-   - Alternatively, you can directly replace the placeholder in the code:
-     - Open `src/services/groqService.js` and `src/services/multiAgentService.js`
-     - Find the line with `apiKey: process.env.GROQ_API_KEY || "your-api-key-here"`
-     - Replace `"your-api-key-here"` with your actual Groq API key
+   - Edit the `.env` file and replace the placeholder values with your actual API keys:
+     ```
+     GROQ_API_KEY=your_actual_groq_api_key_here
+     API_SECRET_KEY=your_secret_key_for_server_auth
+     VITE_GROQ_API_KEY=your_actual_groq_api_key_here
+     VITE_API_SECRET_KEY=your_secret_key_for_server_auth
+     ```
 
 ### Running the Application
 

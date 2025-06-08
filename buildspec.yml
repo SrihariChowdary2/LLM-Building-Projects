@@ -4,8 +4,8 @@ env:
   variables:
     NODE_VERSION: "18"
   secrets-manager:
-    GROQ_API_KEY: "your-secrets-path:GROQ_API_KEY"
-    API_SECRET_KEY: "your-secrets-path:API_SECRET_KEY"
+    GROQ_API_KEY: "prod/llm-building-projects:GROQ_API_KEY"
+    API_SECRET_KEY: "prod/llm-building-projects:API_SECRET_KEY"
 
 phases:
   install:

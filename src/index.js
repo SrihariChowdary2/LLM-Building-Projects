@@ -1,9 +1,7 @@
 import initGroqService from './services/groqService';
 import initMultiAgentService from './services/multiAgentService';
-import { setupCounter } from './components/counterComponent';
 import { setupChatUI } from './components/chatComponent';
 import { setupProjectBuilderUI } from './components/projectBuilderComponent';
-import { setupProjectStructureUI } from './components/projectStructureComponent';
 
 // Initialize services and set up UI
 const initServices = async () => {
